@@ -1,7 +1,8 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", sans-serif;
+    background-color: #dbdbdb;
 }
 
 .footer {
@@ -17,5 +18,7 @@ body {
 .main-body {
     max-width: 1000px;
     width: 100%;
-    height: 100vh;
+    height: 80vh;
+    font-family: "Inter", sans-serif;
+   
 }

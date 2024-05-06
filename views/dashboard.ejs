@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs")  %>
+<style>
+    body {
+        background-color: #ececec;
+    }
+</style>
+
+<main class="main-body container">
+    <div class="row justify-content-center pt-5">
+        <div class="col-md-6">
+            <div class="holder-dashboard">
+                <form class="container" action="index.ejs" method="POST">
+                    <div class="mb-3">
+                        <label for="Categories" class="form-label">Choose category:</label>
+                        <select id="categorie" name="categorie" class="form-select" size="4">
+                            <option value="volvo">Design</option>
+                            <option value="saab">Data</option>
+                            <option value="fiat">Programming</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Enter the title:</label>
+                        <input type="text" name="title" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Write the blog:</label>
+                        <textarea name="text" id="text" class="form-control"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<%- include("partials/footer.ejs")  %>

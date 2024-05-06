@@ -9,17 +9,20 @@ app.use(express.static("public"));
 
 app.get("/", (req, res)=> {
 
-
 res.render("index.ejs");
 });
 
 
-app.get("/", (req, res)=> {
+app.get("/about", (req, res)=> {
 
-
-    res.render("index.ejs");
-    });
+res.render("about.ejs");
+});
     
+app.get("/dashboard", (req, res)=> {
+
+    res.render("dashboard.ejs");
+    });
+        
 
 
 

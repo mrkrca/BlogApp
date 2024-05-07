@@ -7,7 +7,6 @@ body {
 
 .footer {
     position: fixed;
-    left: 0;
     bottom: 0;
     width: 100%;
     background-color: #f8f9fa;
@@ -20,5 +19,28 @@ body {
     width: 100%;
     height: 80vh;
     font-family: "Inter", sans-serif;
-   
+    overflow:auto;
+    
 }
+
+.card-body {
+    max-width: 500px;
+    width: 100%;
+    height: 300px;
+    white-space: wrap;
+    overflow: hidden;
+
+
+}
+.card-body:before {
+    content:'';
+    width:100%;
+    height:100%;    
+    position:absolute;
+    left:0;
+    top:0;
+    background:linear-gradient(transparent 50px, white);
+    
+  }
+
+  

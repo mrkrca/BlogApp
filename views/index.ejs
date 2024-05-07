@@ -6,13 +6,25 @@
 </style>
 
 <main class="main-body container">
+    <h1 class="container bg-white p-4 mt-5">Currently browsing: <%= %></h1>
 
-   
-        <h1 class="container bg-white p-4" style="position: relative; top: 100px;">Currently browsing: <%=  %></h1>
-    
-
-
-
+    <div class="container mt-5">
+        <div class="row">
+            <% posts.forEach(post => { %>
+                <div class="col-lg-4 mb-4"> 
+                    <div class="card manual-card"> 
+                        <div class="card-body">
+                            <h5 class="card-title"><%= post.title %></h5>
+                            <p class="card-text"><%= post.text %></p>
+                            <a href="/post/ <%= post.id  %>" class="btn btn-primary" style="position: absolute; bottom: 0;
+                            margin: 10px;"  >Read More</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
 </main>
+
 
 <%- include("partials/footer.ejs")  %>

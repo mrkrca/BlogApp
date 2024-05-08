@@ -23,12 +23,11 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <form action="/deleted/<%= post.id %>" method="post">
-
                                         <button type="/" class="dropdown-item" id="deletePost"  >DELETE</button>
-                                        
                                     </form>
-                                  
-                                  
+                                    <form action="/edit/<%= post.id %>" method="get">
+                                        <button type="/" class="dropdown-item" id="deletePost"  >EDIT</button>
+                                    </form>
                                 </ul>
                             </div>
                         </div>

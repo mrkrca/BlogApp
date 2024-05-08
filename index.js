@@ -31,17 +31,6 @@ res.render("index.ejs" ,{posts: posts});
 });
 
 
-app.post("/deleted/:id",(req, res)=> {
-
-    const postId = req.params.id;
-    const post = posts.find(post => post.id == postId);
-
-    posts.splice(post);
-
-res.render("index.ejs" ,{posts: posts});
-});
-
-
 
 app.get("/post/:id", (req, res) => {
     const postId = req.params.id;
@@ -55,6 +44,8 @@ app.get("/post/:id", (req, res) => {
 
     })
 });
+
+
 
 
 app.get("/about", (req, res)=> {
@@ -90,6 +81,15 @@ app.post("/", (req, res) => {
     }); 
 });
 
+app.post("/deleted/:id",(req, res)=> {
+
+    const postId = req.params.id;
+    const index = posts.find(post => post.id == postId);
+
+    posts.splice(index);
+
+res.render("index.ejs" ,{posts: posts});
+});
 
 
 

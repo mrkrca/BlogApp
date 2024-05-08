@@ -22,8 +22,12 @@
                                     <span class="visually-hidden">Toggle Dropend</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">EDIT</a></li>
-                                    <li><a class="dropdown-item" href="#">DELETE</a></li>
+                                    <form action="/deleted/<%= post.id %>" method="post">
+
+                                        <button type="/" class="dropdown-item" id="deletePost"  >DELETE</button>
+                                        
+                                    </form>
+                                  
                                   
                                 </ul>
                             </div>

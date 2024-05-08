@@ -1,5 +1,10 @@
 import express from "express";
 import bodyParser from "body-parser"
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+
 
 var posts = [];
 var idCounter = 0;
@@ -8,21 +13,38 @@ const app = express();
 const port = 3000;
 
 
-
-
+app.use(express.static(__dirname));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }))
 
 
 
+
+
+
+
+
+
+
 app.get("/", (req, res)=> {
+res.render("index.ejs" ,{posts: posts});
+});
+
+
+app.post("/deleted/:id",(req, res)=> {
+
+    const postId = req.params.id;
+    const post = posts.find(post => post.id == postId);
+
+    posts.splice(post);
 
 res.render("index.ejs" ,{posts: posts});
 });
 
+
+
 app.get("/post/:id", (req, res) => {
     const postId = req.params.id;
-    // Find the post with the specified ID
     const post = posts.find(post => post.id == postId);
     
     res.render("post.ejs", 
@@ -35,18 +57,13 @@ app.get("/post/:id", (req, res) => {
 });
 
 
-
-
 app.get("/about", (req, res)=> {
-
 res.render("about.ejs");
 });
     
 
 
-
 app.get("/dashboard", (req, res)=> {
-
 res.render("dashboard.ejs");
 });
         
@@ -67,7 +84,6 @@ app.post("/", (req, res) => {
     posts.push(postsObj);
     console.log(posts);
 
-        
     res.render("index.ejs",  
     {
     posts   

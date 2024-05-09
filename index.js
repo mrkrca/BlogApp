@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser"
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import jQuery from "jquery";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
@@ -16,9 +17,6 @@ const port = 3000;
 app.use(express.static(__dirname));
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }))
-
-
-
 
 
 
@@ -43,6 +41,9 @@ app.get("/post/:id", (req, res) => {
         content: post.text
 
     })
+
+
+    
 });
 
 
@@ -81,20 +82,27 @@ app.post("/", (req, res) => {
     }); 
 });
 
-app.post("/deleted/:id",(req, res)=> {
-
-    const postId = req.params.id;
-    const index = posts.find(post => post.id == postId);
-
-    posts.splice(index);
-
-res.render("index.ejs" ,{posts: posts});
+app.post("/dashboard/delete-product", (req, res) => {
+    var postId = req.body.id;
+    console.log("Deleting post with ID:", postId);
+    const index = posts.findIndex(post => post.id == postId);
+    
+    if (index !== -1) {
+        posts.splice(index, 1);
+        console.log("Post deleted successfully");
+    } else {
+        console.log("Post not found");
+    }
+    res.redirect("/dashboard")
 });
 
 
 
+app.post("/dashboard/edit-product", (req, res)=> {
 
 
+    res.redirect("/dashboard")
+})
 app.listen(port, ()=> {
     console.log(`Listening to port: ${port}`);
 });

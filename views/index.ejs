@@ -18,17 +18,22 @@
                             <p class="card-text"><%= post.text %></p>
                             <div class="btn-group m-2" style="position: absolute; bottom: 0; left: 0;">
                                 <a href="/post/<%= post.id %>" class="btn btn-primary">Read More</a>
+    
                                 <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="visually-hidden">Toggle Dropend</span>
                                 </button>
+                           
                                 <ul class="dropdown-menu">
-                                    <form action="/deleted/<%= post.id %>" method="post">
-                                        <button type="/" class="dropdown-item" id="deletePost"  >DELETE</button>
+                                    <form action="/dashboard/delete-product" method="POST">
+                                      <input class="dropdown-item" type="hidden" name="id" value="<%= post.id %>">
+                                      <button type="submit" class="dropdown-item" id="deletePost"  >DELETE</button>
                                     </form>
-                                    <form action="/edit/<%= post.id %>" method="get">
-                                        <button type="/" class="dropdown-item" id="deletePost"  >EDIT</button>
-                                    </form>
+                                    <form action="/dashboard/edit-product" method="POST">
+                                        <input class="dropdown-item" type="hidden" name="id" value="<%= post.id %>">
+                                        <button type="submit" class="dropdown-item" id="editPost"  >EDIT</button>
+                                      </form>
                                 </ul>
+
                             </div>
                         </div>
                     </div>

@@ -26,11 +26,12 @@ app.get("/edit-product/:id", (req, res)=> {
     
     
     const viewData = {
+        postId,
         edit: true,
         pageTitle: "Edit Post",
         post: postToChange
     }
-    res.render("dashboard.ejs", viewData ); 
+    res.render("dashboard.ejs", viewData );
 });
 
 
@@ -99,6 +100,27 @@ app.post("/delete-post", (req, res) => {
     }
     res.redirect("/");
 });
+
+app.post("/edit-product/:id", (req, res)=> {
+    const postId = req.params.id; 
+    const { title, text } = req.body;
+
+    
+    const postIndex = posts.findIndex(post => post.id == postId);
+
+    
+    if (postIndex === -1) {
+        return res.status(404).send("Post not found");
+    }
+
+    
+    posts[postIndex].title = title;
+    posts[postIndex].text = text;
+
+    res.redirect("/");
+});
+
+
 
 app.listen(port, ()=> {
     console.log(`Listening to port: ${port}`);

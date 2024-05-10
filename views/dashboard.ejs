@@ -10,29 +10,24 @@
         <div class="col-md-6">
             <div class="holder-dashboard">
                <h2> <%= edit ? "Edit product" : "Add product" %></h2>
-                <form class="container" action="/" method="POST">
-<!--                  
-                    <div class="mb-3">
-                        <label for="Categories" class="form-label">Choose category:</label>
-                        <select id="categorie" name="categorie" class="form-select" size="4">
-                            <option value="volvo">Design</option>
-                            <option value="saab">Data</option>
-                            <option value="fiat">Programming</option>
-                        </select>
-                    </div>
--->  
-                    <div class="mb-3">
-                        <label for="title" class="form-label">Enter the title:</label>
-                        <input type="text" name="title" class="form-control" value="<%= edit ? post.title : " " %>">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="text" class="form-label">Write the blog:</label>
-                        <textarea name="text" id="text" class="form-control" value="<%= edit ? post.text : " " %>"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+               <form class="container" action="<%= edit ? '/edit-product/' + (post ? post.id : '') : '/' %>" method="POST">
+                <% if (edit && post) { %>
+                    <input type="hidden" name="postId" value="<%= postId %>"/>
+                <% } %>
+            
+                <div class="mb-3">
+                    <label for="title" class="form-label">Enter the title:</label>
+                    <input type="text" name="title" class="form-control" value="<%= edit && post ? post.title : '' %>">
+                </div>
+            
+                <div class="mb-3">
+                    <label for="text" class="form-label">Write the blog:</label>
+                    <textarea name="text" class="form-control"><%= edit && post ? post.text : '' %></textarea>
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
             </div>
         </div>
     </div>

@@ -9,6 +9,7 @@
     <div class="row justify-content-center pt-5">
         <div class="col-md-6">
             <div class="holder-dashboard">
+               <h2> <%= edit ? "Edit product" : "Add product" %></h2>
                 <form class="container" action="/" method="POST">
 <!--                  
                     <div class="mb-3">
@@ -22,12 +23,12 @@
 -->  
                     <div class="mb-3">
                         <label for="title" class="form-label">Enter the title:</label>
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" value="<%= edit ? post.title : " " %>">
                     </div>
 
                     <div class="mb-3">
                         <label for="text" class="form-label">Write the blog:</label>
-                        <textarea name="text" id="text" class="form-control"></textarea>
+                        <textarea name="text" id="text" class="form-control" value="<%= edit ? post.text : " " %>"></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>

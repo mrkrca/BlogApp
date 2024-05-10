@@ -6,7 +6,8 @@
 </style>
 
 <main class="main-body container">
-    <h1 class="container bg-white p-4 mt-5">Currently browsing: <%= %></h1>
+
+    <!-- <h1 class="container bg-white p-4 mt-5">Currently browsing: <%= %></h1> -->
 
     <div class="container mt-5">
         <div class="row">
@@ -24,14 +25,11 @@
                                 </button>
                            
                                 <ul class="dropdown-menu">
-                                    <form action="/dashboard/delete-product" method="POST">
+                                    <form action="/delete-post" method="post">
                                       <input class="dropdown-item" type="hidden" name="id" value="<%= post.id %>">
                                       <button type="submit" class="dropdown-item" id="deletePost"  >DELETE</button>
                                     </form>
-                                    <form action="/dashboard/edit-product" method="POST">
-                                        <input class="dropdown-item" type="hidden" name="id" value="<%= post.id %>">
-                                        <button type="submit" class="dropdown-item" id="editPost"  >EDIT</button>
-                                      </form>
+                                    <a class="dropdown-item" href="/edit-product/<%= post.id %>">EDIT</a>
                                 </ul>
 
                             </div>

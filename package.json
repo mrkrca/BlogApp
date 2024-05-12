@@ -4,10 +4,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "echo 'Add your build commands here'" ,
+    "build": "node index.js",
+    "use": "@vercel/node",
+    "routes": "src /(.*)",
+    "dest": "/",
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",

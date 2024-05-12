@@ -1,11 +1,12 @@
 {
   "name": "blog-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "echo 'Add your build commands here'" ,
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,7 @@
     "fs": "^0.0.1-security",
     "jquery": "^3.7.1",
     "method-override": "^3.0.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

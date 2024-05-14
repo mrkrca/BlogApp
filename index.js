@@ -12,7 +12,7 @@ var posts = [];
 var idCounter = 0;
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 
 app.use(express.static(__dirname));
@@ -120,12 +120,8 @@ app.post("/edit-product/:id", (req, res)=> {
     res.redirect("/");
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-});
-
-app.listen(port, ()=> {
-    console.log(`Listening to port: ${port}`);
 });
 

@@ -7,7 +7,7 @@
     "build": "node index.js",
     "use": "@vercel/node",
     "routes": "src /(.*)",
-    "dest": "/",
+    "dest": "/api",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   
